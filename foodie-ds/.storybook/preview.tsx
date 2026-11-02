@@ -41,10 +41,11 @@ const preview: Preview = {
     viewport: { value: 'foodieMobile', isRotated: false },
   },
   decorators: [
-    (Story) => (
+    // Stories default to the 390px column. Comparison pages can opt out with `parameters.fdsWide`.
+    (Story, { parameters }) => (
       <div
         style={{
-          maxWidth: 'var(--layout-viewport-width)',
+          maxWidth: parameters.fdsWide ? 'none' : 'var(--layout-viewport-width)',
           padding: 'var(--layout-gutter)',
           background: 'var(--color-bg-surface)',
           minHeight: '100%',
