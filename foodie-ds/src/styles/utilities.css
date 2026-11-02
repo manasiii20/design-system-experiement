@@ -1,0 +1,34 @@
+/* Shared text utilities. Use these instead of re-implementing truncation. */
+
+/* Single line, ellipsis. Parent must constrain width (e.g. min-width: 0 in flex). */
+.fds-truncate {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Multi-line clamp. Set --fds-lines on the element (defaults to 2). */
+.fds-clamp {
+  display: -webkit-box;
+  min-width: 0;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--fds-lines, 2);
+  line-clamp: var(--fds-lines, 2);
+  overflow-wrap: anywhere;
+}
+
+/* Visually hidden but available to screen readers. */
+.fds-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -1,0 +1,205 @@
+/*
+ * foodie-ds design tokens
+ * ------------------------------------------------------------------
+ * Two tiers:
+ *   1. Primitives (--palette-*): raw values. NEVER use these in components.
+ *   2. Semantic tokens (everything else): what components consume.
+ *
+ * This file is the ONLY place in the codebase where raw color, spacing,
+ * font-size, radius, shadow, or duration values are allowed.
+ *
+ * Adding, renaming, or removing a token requires sign-off from the design
+ * system owner. See CLAUDE.md -> "Token governance".
+ */
+
+:root {
+  /* ================================================================
+   * 1. PRIMITIVES — do not reference from components
+   * ================================================================ */
+
+  /* Saffron (brand) */
+  --palette-saffron-50: #fff4ec;
+  --palette-saffron-100: #ffe3cf;
+  --palette-saffron-300: #ffa66b;
+  --palette-saffron-500: #fc6b1c;
+  --palette-saffron-600: #c2410c; /* 5.18:1 on white */
+  --palette-saffron-700: #a8380a;
+  --palette-saffron-800: #8f2f08;
+
+  /* Neutrals */
+  --palette-neutral-0: #ffffff;
+  --palette-neutral-50: #f7f7f8;
+  --palette-neutral-100: #efeff1;
+  --palette-neutral-200: #e2e2e6;
+  --palette-neutral-300: #c9c9cf;
+  --palette-neutral-500: #8a8a94;
+  --palette-neutral-600: #6e6e78; /* 5.04:1 on white */
+  --palette-neutral-700: #4a4a52;
+  --palette-neutral-900: #1c1c1e;
+
+  /* Green (veg, success, ratings) */
+  --palette-green-50: #e9f6ee;
+  --palette-green-600: #1b7a3d;
+  --palette-green-700: #14612f;
+
+  /* Red (non-veg, error) */
+  --palette-red-50: #fdecea;
+  --palette-red-600: #b3261e;
+  --palette-red-700: #8c1d17;
+
+  /* Amber (warning, offers) */
+  --palette-amber-50: #fff8e1;
+  --palette-amber-600: #8a5a00;
+
+  /* Blue (info, links) */
+  --palette-blue-50: #e8f1fd;
+  --palette-blue-600: #1a5fb4;
+
+  /* ================================================================
+   * 2. SEMANTIC TOKENS — use these in components
+   * ================================================================ */
+
+  /* ---- Color: brand / actions ---- */
+  --color-brand: var(--palette-saffron-500); /* decorative only, not for text */
+  --color-action-primary-bg: var(--palette-saffron-600);
+  --color-action-primary-bg-hover: var(--palette-saffron-700);
+  --color-action-primary-bg-pressed: var(--palette-saffron-800);
+  --color-action-primary-fg: var(--palette-neutral-0);
+
+  --color-action-secondary-bg: var(--palette-saffron-50);
+  --color-action-secondary-bg-hover: var(--palette-saffron-100);
+  --color-action-secondary-bg-pressed: var(--palette-saffron-300);
+  --color-action-secondary-fg: var(--palette-saffron-800);
+
+  --color-action-ghost-bg-hover: var(--palette-neutral-100);
+  --color-action-ghost-bg-pressed: var(--palette-neutral-200);
+
+  --color-action-disabled-bg: var(--palette-neutral-100);
+  --color-action-disabled-fg: var(--palette-neutral-500);
+
+  /* ---- Color: surfaces ---- */
+  --color-bg-page: var(--palette-neutral-50);
+  --color-bg-surface: var(--palette-neutral-0);
+  --color-bg-subtle: var(--palette-neutral-100);
+  --color-bg-overlay: rgb(28 28 30 / 0.6);
+
+  /* ---- Color: text ---- */
+  --color-text-primary: var(--palette-neutral-900);
+  --color-text-secondary: var(--palette-neutral-600);
+  --color-text-disabled: var(--palette-neutral-500);
+  --color-text-inverse: var(--palette-neutral-0);
+  --color-text-brand: var(--palette-saffron-600);
+  --color-text-link: var(--palette-blue-600);
+
+  /* ---- Color: borders ---- */
+  --color-border-default: var(--palette-neutral-200);
+  --color-border-strong: var(--palette-neutral-300);
+  --color-border-brand: var(--palette-saffron-600);
+  --color-focus-ring: var(--palette-blue-600);
+
+  /* ---- Color: food & status (Indian context) ---- */
+  --color-veg: var(--palette-green-600);          /* FSSAI veg mark */
+  --color-nonveg: var(--palette-red-600);         /* FSSAI non-veg mark */
+  --color-rating-bg: var(--palette-green-600);
+  --color-rating-fg: var(--palette-neutral-0);
+
+  --color-success-fg: var(--palette-green-700);
+  --color-success-bg: var(--palette-green-50);
+  --color-error-fg: var(--palette-red-700);
+  --color-error-bg: var(--palette-red-50);
+  --color-warning-fg: var(--palette-amber-600);
+  --color-warning-bg: var(--palette-amber-50);
+  --color-info-fg: var(--palette-blue-600);
+  --color-info-bg: var(--palette-blue-50);
+  --color-offer-fg: var(--palette-saffron-600);
+  --color-offer-bg: var(--palette-saffron-50);
+
+  /* ---- Spacing (4px grid) ---- */
+  --space-0: 0;
+  --space-1: 0.25rem;  /* 4px  */
+  --space-2: 0.5rem;   /* 8px  */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+  --space-5: 1.25rem;  /* 20px */
+  --space-6: 1.5rem;   /* 24px */
+  --space-8: 2rem;     /* 32px */
+  --space-10: 2.5rem;  /* 40px */
+  --space-12: 3rem;    /* 48px */
+
+  /* ---- Layout ---- */
+  --layout-viewport-width: 390px;   /* design target: 390px mobile */
+  --layout-gutter: var(--space-4);  /* page side padding */
+  --size-touch-target: 44px;        /* minimum interactive hit area */
+  --size-icon-sm: 1rem;             /* 16px */
+  --size-icon-md: 1.25rem;          /* 20px */
+  --size-icon-lg: 1.5rem;           /* 24px */
+
+  /* ---- Typography ---- */
+  --font-family-base: system-ui, -apple-system, "Segoe UI", Roboto,
+    "Noto Sans", "Noto Sans Devanagari", "Helvetica Neue", Arial, sans-serif;
+  --font-family-numeric: var(--font-family-base);
+
+  --font-size-xs: 0.75rem;   /* 12px — meta, badges */
+  --font-size-sm: 0.875rem;  /* 14px — secondary body */
+  --font-size-md: 1rem;      /* 16px — body, inputs (prevents iOS zoom) */
+  --font-size-lg: 1.125rem;  /* 18px — card titles */
+  --font-size-xl: 1.25rem;   /* 20px — section headings */
+  --font-size-2xl: 1.5rem;   /* 24px — page titles */
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.2;
+  --line-height-snug: 1.35;
+  --line-height-normal: 1.5;
+
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.02em;
+
+  /* ---- Radius ---- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-pill: 999px;
+
+  /* ---- Border width ---- */
+  --border-width-thin: 1px;
+  --border-width-thick: 2px;
+
+  /* ---- Elevation ---- */
+  --shadow-sm: 0 1px 2px rgb(28 28 30 / 0.08);
+  --shadow-md: 0 4px 12px rgb(28 28 30 / 0.1);
+  --shadow-lg: 0 8px 24px rgb(28 28 30 / 0.14);
+
+  /* ---- Focus ---- */
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+
+  /* ---- Opacity ---- */
+  --opacity-disabled: 0.6;
+
+  /* ---- Motion ---- */
+  --duration-fast: 100ms;
+  --duration-base: 200ms;
+  --duration-slow: 300ms;
+  --easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --pressed-scale: 0.97;
+
+  /* ---- Z-index ---- */
+  --z-sticky: 100;
+  --z-overlay: 200;
+  --z-modal: 300;
+  --z-toast: 400;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+    --pressed-scale: 1;
+  }
+}
